@@ -3,7 +3,7 @@
 </script>
 
 <template>
-      Main Page
+      Мои заметки
 </template>
 
 <style scoped>

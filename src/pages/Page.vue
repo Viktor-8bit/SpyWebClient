@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    Amogus Page
+
 </template>
 
 <style scoped>

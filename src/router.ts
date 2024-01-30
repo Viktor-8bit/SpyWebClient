@@ -1,18 +1,38 @@
-import Vue from 'vue'
 
-import  mainpage from './pages/mainpage.vue'
-import  amogus from './pages/amoguspage.vue'
+import  notes  from './pages/notes.vue'
+import  search from './pages/search.vue'
+import  logout from './pages/logout.vue'
+import  test from './pages/test.vue'
+import mian from './pages/mian.vue'
+import aboutHost from './pages/aboutHost.vue'
 
 import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
+
     {
-        path: '/',
-        component: mainpage,
+        path: '/:hostname([\\w-]+)',
+        component: aboutHost,
     },
     {
-        path: '/amogus',
-        component: amogus,
+        path: '/notes',
+        component: notes,
+    },
+    {
+        path: '/search',
+        component: search,
+    },
+    {
+        path: '/logout',
+        component: logout,
+    },
+    {
+        path: '/test',
+        component: test,
+    },
+    {
+        path: '/',
+        component: mian,
     }
 ]
 
