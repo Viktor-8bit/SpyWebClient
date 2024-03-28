@@ -22,9 +22,6 @@ Chart.register(...registerables);
 Chart.register(BarElement, BarController, CategoryScale, Decimation, Filler, Legend, Title, Tooltip);
 
 
-let charts = []
-console.log()
-
       export default {
         props: {
           graphlabel: {
@@ -58,37 +55,35 @@ console.log()
               this.mychart.update();
           }
         },
-          mounted() {
-            let canvas = document.getElementById(this.elementId) as HTMLCanvasElement;
-            let ctx = canvas.getContext('2d')
-            const _mychart = new Chart(ctx, {
-              type: 'line',
-              data: {
-                labels: this.clable,
-                datasets: [{
-                  label: this.graphlabel,
-                  data: this.cdata,
-                  borderWidth: 1,
-                  backgroundColor: '#0d6efd', // Измените цвет фона графика
-                  borderColor: '#0d6efd' // Измените цвет границы графика
-                }]
-              },
-              options: {
-                responsive: true, // Настройка графика для полного размера
-                maintainAspectRatio: false, // Отключение пропорционального масштабирования
+        mounted() {
+          let canvas = document.getElementById(this.elementId) as HTMLCanvasElement;
+          let ctx = canvas.getContext('2d')
+          const _mychart = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: this.clable,
+              datasets: [{
+                label: this.graphlabel,
+                data: this.cdata,
+                borderWidth: 1,
+                backgroundColor: '#0d6efd', // Измените цвет фона графика
+                borderColor: '#0d6efd' // Измените цвет границы графика
+              }]
+            },
+            options: {
+              responsive: true, // Настройка графика для полного размера
+              maintainAspectRatio: false, // Отключение пропорционального масштабирования
 
-                scales: {
-                  y: {
-                    beginAtZero: true,
-                  }
+              scales: {
+                y: {
+                  beginAtZero: true,
                 }
               }
-            })
-            Object.seal(_mychart);
-            this.mychart = _mychart;
-        }
-        }
-
-
+            }
+          })
+          Object.seal(_mychart);
+          this.mychart = _mychart;
+      }
+    }
 
 </script>

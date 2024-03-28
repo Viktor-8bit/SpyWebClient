@@ -1,6 +1,4 @@
 <script setup lang="ts">
-    import axios from 'axios';
-    import vue from 'vue';
 </script>
 
 <template>
@@ -47,7 +45,8 @@
 </template>
 
 <script lang="ts">
-    import axios, {Axios} from "axios";
+    import axios from "axios";
+    const regex = /(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}).*/;
 
     export default {
         data() {
@@ -63,20 +62,20 @@
         },
       methods: {
           GetProcessData() {
-            axios.get('http://localhost:8000/api/Process/GetProcessMounted/' + this.hostname + '/1').then(response => {
+            axios.get(this.$MyUrl + '/api/Process/GetProcessMounted/' + this.hostname + '/0').then(response => {
                 for(let i = 0; i < response.data.length; i++ ) {
                   let name = response.data[i]['name']
                   let date = response.data[i]['date']
                   let pid = response.data[i]['processId']
 
-                  this.process.push( {'name': name, 'date': date, 'pid': pid, 'nubmer': i })
+                  this.process.push( {'name': name, 'date': date.replace(regex, "$1 $2"), 'pid': pid, 'nubmer': i })
                 }
               }
             );
           },
 
           GetActionsDate() {
-            axios.get('http://localhost:8000/api/Process/GetAllProcessActionDate/' + this.hostname ).then(response => {
+            axios.get(this.$MyUrl + '/api/Process/GetAllProcessActionDate/' + this.hostname ).then(response => {
 
               for(let i = 0; i < response.data.length; i++ ) {
                   this.options.push( { value: response.data[i], label:  response.data[i] } )
@@ -86,7 +85,7 @@
 
           // восстанавливаем по дате процессы
           GetProcessDataByDate() {
-            axios.get('http://localhost:8000/api/Process/GetProcessesByDate/' + this.hostname + '/' + this.selectedOption).then(response => {
+            axios.get(this.$MyUrl + '/api/Process/GetProcessesByDate/' + this.hostname + '/' + this.selectedOption).then(response => {
               this.process = []
               for(let i = 0; i < response.data.length; i++ ) {
                 let name = response.data[i]['name']

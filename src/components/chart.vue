@@ -23,7 +23,7 @@ export default {
     Chart.register(BarElement, BarController, CategoryScale, Decimation, Filler, Legend, Title, Tooltip);
     // Ваш код, который должен выполниться после загрузки HTML
     const canvas1 = document.getElementById('amgusgpraph') as HTMLCanvasElement;
-    const ctx = canvas1.getContext('2d');
+    const ctx: object = canvas1.getContext('2d');
 
     new Chart(ctx, {
       type: 'bar',

@@ -3,9 +3,6 @@
 </script>
 
 
-
-
-
 <template>
 
   <div id="amoguslist">

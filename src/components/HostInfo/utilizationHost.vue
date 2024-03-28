@@ -33,7 +33,7 @@ import vue from 'vue';
 
         async getdata() {
           setInterval(() => {
-               axios.get('http://localhost:8000/api/Utilization/GetFromPc/' + this.hostname + '/1/1')
+               axios.get(this.$MyUrl + '/api/Utilization/GetFromPc/' + this.hostname + '/1/1')
                   .then(response => {
                     this.ram = []
                     this.cpu = []

@@ -31,7 +31,7 @@
       },
       methods: {
         async getinfoabouthost() {
-          const response = await axios.get('http://localhost:8000/api/Pc/InfoPc/' + this.hostname);
+          const response = await axios.get(this.$MyUrl + '/api/Pc/InfoPc/' + this.hostname);
           this.infohost = response.data;
           console.log(this.infohost)
           console.log(this.hostname)

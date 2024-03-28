@@ -2,7 +2,6 @@
 
 
 import mycustheader from "./components/mycustheader.vue"
-import test from "./pages/test.vue"
 
 
 </script>
