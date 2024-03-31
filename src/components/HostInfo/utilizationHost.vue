@@ -8,11 +8,10 @@ import vue from 'vue';
 
 <template>
 
+  <div class="row p-3 ">
 
-  <div class="row p-5 w-75">
-
-    <ChartJSChart :clable="time" :cdata="cpu" :graphlabel="'Загрузка процессора %'"  :elementId="'_CPU'"></ChartJSChart>
-    <ChartJSChart :clable="time" :cdata="ram" :graphlabel="'Свободная память mb'"  :elementId="'_RAM'"></ChartJSChart>
+    <ChartJSChart :clable="time" :cdata="cpu" :graphlabel="'Загрузка процессора в %'"  :elementId="'_CPU'"></ChartJSChart>
+    <ChartJSChart :clable="time" :cdata="ram" :graphlabel="'Занято памяти в %'"  :elementId="'_RAM'"></ChartJSChart>
 
   </div>
 
@@ -33,7 +32,7 @@ import vue from 'vue';
 
         async getdata() {
           setInterval(() => {
-               axios.get(this.$MyUrl + '/api/Utilization/GetFromPc/' + this.hostname + '/1/1')
+               axios.get(this.$MyUrl + '/api/Utilization/GetFromPc/' + this.hostname ) // + '/1/1'
                   .then(response => {
                     this.ram = []
                     this.cpu = []
@@ -65,11 +64,11 @@ import vue from 'vue';
                     // Обработка ошибки
                     console.error(error);
                   });
-            }, 5000);
+            }, 1000);
           },
         async getdatafirsttime() {
 
-            axios.get('http://localhost:8000/api/Utilization/GetFromPc/' + this.hostname + '/1/1')
+            axios.get('http://localhost:8000/api/Utilization/GetFromPc/' + this.hostname ) // '/1/1'
                 .then(response => {
                   this.ram = []
                   this.cpu = []

@@ -5,7 +5,7 @@
 
 <template>
 
-      <div style="width: 900px; height: 400px">
+      <div style="width: 1000px; height: 200px">
           <canvas v-bind:id="elementId">1</canvas>
       </div>
 
@@ -77,13 +77,16 @@ Chart.register(BarElement, BarController, CategoryScale, Decimation, Filler, Leg
               scales: {
                 y: {
                   beginAtZero: true,
+                  ticks: {
+                    max: 100 // 100%
+                  }
                 }
-              }
+              },
             }
           })
           Object.seal(_mychart);
           this.mychart = _mychart;
-      }
+        }
     }
 
 </script>

@@ -40,7 +40,6 @@
       mounted() {
         this.getinfoabouthost();
         //const hostname = this.$route.params.hostname;
-
       }
     }
 </script>

@@ -10,11 +10,11 @@
 
   <div class="row justify-content-center">
 
-    <div class="col col-md-3 mt-5 ms-md-5">
+    <div class="col col-lg-4 col-9 mt-5 mr-3 ml-3">
       <InfoHost></InfoHost>
     </div>
 
-    <div class="col col-md-5 p-5">
+    <div class="col col-lg-7 col-md-9 p-5">
 
       <ul class="nav nav-pills" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
@@ -27,7 +27,7 @@
           <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Скриншоты</button>
         </li>
       </ul>
-      <div class="tab-content" id="pills-tabContent">
+      <div class="tab-content p-4" id="pills-tabContent">
 
         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
           <utilizationHost></utilizationHost>
