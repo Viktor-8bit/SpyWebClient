@@ -17,6 +17,9 @@
           <input v-model="password" type="password" class="form-control" id="Password">
         </div>
       </form>
+
+      <p class="mt-2 mb-2">{{error}}</p>
+
       <button @click="login_data" class="btn btn-primary">Войти</button>
     </div>
   </div>
@@ -34,7 +37,8 @@ export default {
   data() {
     return {
       login: "",
-      password: ""
+      password: "",
+      error: ""
     };
   },
   methods: {
@@ -45,12 +49,18 @@ export default {
             Login: this.login,
             Password: this.password
           }
-      ).then(resp => {
+      )
+      .then(resp => {
         console.log(resp.status)
         if (resp.status == 200) {
           localStorage.setItem('jwt_token', resp.data);
+          window.location.href = '/'
         }
       })
+      .catch(error => {
+        this.error = "Ошибка входа: неправильный логин или неправильный пароль"
+      })
+
     }
   }
 }

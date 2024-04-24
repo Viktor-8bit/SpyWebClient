@@ -5,7 +5,7 @@
 
 <template>
 
-  <div id="amoguslist">
+  <div id="">
 
     <div v-for="a in my_hosts">
 

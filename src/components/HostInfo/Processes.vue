@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import route from "../../router.ts"
 </script>
 
 <template>
@@ -62,7 +63,7 @@
         },
       methods: {
           GetProcessData() {
-            axios.get(this.$MyUrl + '/api/Process/GetProcessMounted/' + this.hostname + '/0').then(response => {
+            route.api.get(this.$MyUrl + '/api/Process/GetProcessMounted/' + this.hostname + '/0').then(response => {
                 for(let i = 0; i < response.data.length; i++ ) {
                   let name = response.data[i]['name']
                   let date = response.data[i]['date']
@@ -75,7 +76,7 @@
           },
 
           GetActionsDate() {
-            axios.get(this.$MyUrl + '/api/Process/GetAllProcessActionDate/' + this.hostname ).then(response => {
+            route.api.get(this.$MyUrl + '/api/Process/GetAllProcessActionDate/' + this.hostname ).then(response => {
 
               for(let i = 0; i < response.data.length; i++ ) {
                   this.options.push( { value: response.data[i], label:  response.data[i].replace(regex, "$1 $2") } )
@@ -85,7 +86,7 @@
 
           // восстанавливаем по дате процессы
           GetProcessDataByDate() {
-            axios.get(this.$MyUrl + '/api/Process/GetProcessesByDate/' + this.hostname + '/' + this.selectedOption).then(response => {
+            route.api.get(this.$MyUrl + '/api/Process/GetProcessesByDate/' + this.hostname + '/' + this.selectedOption).then(response => {
               this.process = []
               for(let i = 0; i < response.data.length; i++ ) {
                 let name = response.data[i]['name']

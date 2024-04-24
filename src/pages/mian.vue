@@ -3,16 +3,22 @@
 </script>
 
 <template>
-    <div class="p-5">
-      <h3>Главная страница</h3>
 
-      <div class="p-3">
-        <div class="card">
-          <div class="card-header">Список хостов</div>
-          <div class="card-body">
-            <hostlist></hostlist>
+
+    <div class="p-5">
+
+      <div class="row">
+
+
+        <div class="col-9 m-auto">
+          <div class="card">
+            <div class="card-header">Список хостов</div>
+            <div class="card-body">
+              <hostlist></hostlist>
+            </div>
           </div>
         </div>
+
 
       </div>
 

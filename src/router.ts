@@ -70,14 +70,19 @@ const api = axios.create({
 
 router.beforeEach((to, from, next) => {
     var jwtToken = localStorage.getItem('jwt_token');
-
-
     if (to.matched.some((record) => record.meta.requiresAuth) && !jwtToken) {
-
         next('/login');
     } else {
-
         api.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('jwt_token')}`
+        api.get("http://localhost:8000/api/Auth/LoginCheck")
+        .then()
+        .catch(error => {
+                localStorage.removeItem('jwt_token');
+            }
+        );
+
+
+
         next();
     }
 });
