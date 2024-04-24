@@ -7,9 +7,8 @@
 
 <template>
 
-  аомогус
   <div style="width: 800px; height: 400px">
-    <canvas id="amgusgpraph" >1</canvas>
+    <canvas id="gpraph" >1</canvas>
   </div>
 
 </template>
@@ -22,7 +21,7 @@ export default {
     Chart.register(...registerables);
     Chart.register(BarElement, BarController, CategoryScale, Decimation, Filler, Legend, Title, Tooltip);
     // Ваш код, который должен выполниться после загрузки HTML
-    const canvas1 = document.getElementById('amgusgpraph') as HTMLCanvasElement;
+    const canvas1 = document.getElementById('gpraph') as HTMLCanvasElement;
     const ctx: object = canvas1.getContext('2d');
 
     new Chart(ctx, {

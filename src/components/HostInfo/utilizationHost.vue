@@ -4,6 +4,8 @@ import ChartJSChart from "../ChartJSChart.vue"
 import axios from 'axios';
 import vue from 'vue';
 
+
+
 </script>
 
 <template>
@@ -18,6 +20,8 @@ import vue from 'vue';
 </template>
 
 <script lang="ts">
+  const regex = /(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}).*/;
+
     export default {
       data() {
         return {
@@ -45,7 +49,7 @@ import vue from 'vue';
                     for(let i = 0; i < response.data.length; i++ ) {
                       let cpu = response.data[i]['cpU_load']
                       let ram = response.data[i]['ram']
-                      let time = response.data[i]['date']
+                      let time = response.data[i]['date'].replace(regex, "$1 $2")
 
                       cpu_list.push(cpu)
                       ram_list.push(ram)
@@ -68,7 +72,7 @@ import vue from 'vue';
           },
         async getdatafirsttime() {
 
-            axios.get('http://localhost:8000/api/Utilization/GetFromPc/' + this.hostname ) // '/1/1'
+            axios.get(this.$MyUrl + '/api/Utilization/GetFromPc/' + this.hostname ) // '/1/1'
                 .then(response => {
                   this.ram = []
                   this.cpu = []

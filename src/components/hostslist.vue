@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+  import router from '../router.ts';
 </script>
 
 
@@ -38,7 +38,7 @@ export default defineComponent({
   },
   methods: {
     async GetHosts() {
-      const response = await axios.get('http://localhost:8000/api/Pc/GetAllPC');
+      const response = await router.api.get(this.$MyUrl + '/api/Pc/GetAllPC');
       console.log(response.data);
       this.my_hosts = response.data;
     }

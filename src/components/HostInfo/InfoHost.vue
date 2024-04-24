@@ -1,6 +1,6 @@
 <script setup lang="ts">
     import { createApp, ref, defineComponent } from 'vue'
-    import axios from 'axios';
+    import router from '../../router.ts';
 
 </script>
 
@@ -22,6 +22,8 @@
 
 <script lang="ts">
 
+    import axios from "axios";
+
     export default {
       data() {
         return {
@@ -31,7 +33,8 @@
       },
       methods: {
         async getinfoabouthost() {
-          const response = await axios.get(this.$MyUrl + '/api/Pc/InfoPc/' + this.hostname);
+          console.log(router.api.head);
+          const response = await router.api.get(this.$MyUrl + '/api/Pc/InfoPc/' + this.hostname);
           this.infohost = response.data;
           console.log(this.infohost)
           console.log(this.hostname)

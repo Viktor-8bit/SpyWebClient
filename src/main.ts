@@ -12,6 +12,6 @@ app.use(globalVars, {
     MyUrl: 'http://localhost:8000'
 });
 
-app.use(router)
+app.use(router.router)
 
 app.mount('#app')

@@ -78,7 +78,7 @@
             axios.get(this.$MyUrl + '/api/Process/GetAllProcessActionDate/' + this.hostname ).then(response => {
 
               for(let i = 0; i < response.data.length; i++ ) {
-                  this.options.push( { value: response.data[i], label:  response.data[i] } )
+                  this.options.push( { value: response.data[i], label:  response.data[i].replace(regex, "$1 $2") } )
               }
             });
           },
@@ -92,7 +92,7 @@
                 let date = response.data[i]['date']
                 let pid = response.data[i]['processId']
 
-                this.process.push( {'name': name, 'date': date, 'pid': pid, 'nubmer': i })
+                this.process.push( {'name': name, 'date': date.replace(regex, "$1 $2"), 'pid': pid, 'nubmer': i })
               }
             })
           },
