@@ -15,7 +15,7 @@
            <div v-if="a['online']==true">Status: alive💓</div>
            <div v-else>Status: death💀</div>
          </div>
-         <div class="col"><a v-bind:href="a['hostname']"><button  class="btn btn-dark btn-sm">Перейти к хосту</button></a></div>
+         <div class="col"><a v-bind:href="'/host/' + a['hostname']"><button  class="btn btn-dark btn-sm">Перейти к хосту</button></a></div>
        </div>
 
     </div>

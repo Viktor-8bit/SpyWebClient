@@ -15,9 +15,7 @@ import route from "../../router.ts"
         <option v-for="option in options" :value="option.value" :key="option.value">{{ option.label }}</option>
       </select>
     </div>
-
-
-
+    
   </div>
 
   <table class="table table-hover mt-3">
@@ -57,6 +55,7 @@ import route from "../../router.ts"
             process: [],
             date: [],
             options: [],
+            datesend: [],
             id: 0
 
           }
@@ -64,11 +63,12 @@ import route from "../../router.ts"
       methods: {
           GetProcessData() {
             route.api.get(this.$MyUrl + '/api/Process/GetProcessMounted/' + this.hostname + '/0').then(response => {
+                console.log(response.data)
                 for(let i = 0; i < response.data.length; i++ ) {
                   let name = response.data[i]['name']
                   let date = response.data[i]['date']
                   let pid = response.data[i]['processId']
-
+                  let datesend = response.data[i]['']
                   this.process.push( {'name': name, 'date': date.replace(regex, "$1 $2"), 'pid': pid, 'nubmer': i })
                 }
               }

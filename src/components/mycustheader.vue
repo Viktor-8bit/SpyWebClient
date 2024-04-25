@@ -27,7 +27,7 @@ import vue from 'vue';
 
 
       <li class="nav-item" v-if="jwt">
-        <a class="nav-link" href="/user">{{getUsernameFromJwtToken(jwt!)}}</a>
+        <a class="nav-link" :href="'/user/' + getUsernameFromJwtToken(jwt!)">{{getUsernameFromJwtToken(jwt!)}}</a>
       </li>
 
       <li class="nav-item" v-if="jwt">

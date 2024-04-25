@@ -34,14 +34,20 @@
       methods: {
         async getinfoabouthost() {
           console.log(router.api.head);
-          const response = await router.api.get(this.$MyUrl + '/api/Pc/InfoPc/' + this.hostname);
+          let response = await router.api.get(this.$MyUrl + '/api/Pc/InfoPc/' + this.hostname);
           this.infohost = response.data;
-          console.log(this.infohost)
-          console.log(this.hostname)
+        },
+        async lastinfoabuthost() {
+          setInterval(async () => {
+            let response = await router.api.get(this.$MyUrl + '/api/Pc/InfoPc/' + this.hostname);
+            this.infohost = response.data;
+          }, 20000);
+
         }
       },
       mounted() {
         this.getinfoabouthost();
+        this.lastinfoabuthost();
         //const hostname = this.$route.params.hostname;
       }
     }

@@ -3,6 +3,7 @@
       import utilizationHost from '../components/HostInfo/utilizationHost.vue'
       import Process from '../components/HostInfo/Processes.vue'
       import 'bootstrap/dist/js/bootstrap.min.js';
+      import 'bootstrap/dist/css/bootstrap.css';
 
 </script>
 
